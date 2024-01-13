@@ -18,5 +18,6 @@ app.use(express.json());
 app.use(cors({ credentials: true, origin: 'http://localhost:4200' }));
 app.use('/user', userroute)
 app.listen(3000, () => {
+    res.send("hii");
     console.log("app listening at 3000");
 })
