@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 
 
 
-const db = "mongodb+srv://baadhirabaadhi98:2xI50FxQepcZ6qx2@cluster0.e5omvus.mongodb.net/?retryWrites=true&w=majority";
+const db = "mongodb+srv://baadhirabaadhi98:Badera@98@cluster0.dnfcdfl.mongodb.net/";
 mongoose.connect(db, { useNewurlParser: true }).then(() => {
     console.log("database connected successfully")
 }).catch(err => {
