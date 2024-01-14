@@ -16,7 +16,9 @@ mongoose.connect(db, { useNewurlParser: true }).then(() => {
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ credentials: true, origin: 'http://localhost:4200' }));
-
+app.get('/', (req, res) => {
+    res.send("hii");
+})
 app.use('/user', userroute)
 app.listen(3000, () => {
 
