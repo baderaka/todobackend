@@ -7,11 +7,11 @@ const cookieParser = require("cookie-parser");
 
 
 
-const db = "mongodb+srv://baadhirabaadhi98:Badera@98@cluster0.dnfcdfl.mongodb.net/";
+const db = "mongodb+srv://baadhirabaadhi98:badera@cluster0.62pzrrt.mongodb.net/taskmanagement?retryWrites=true&w=majority";
 mongoose.connect(db, { useNewurlParser: true }).then(() => {
     console.log("database connected successfully")
 }).catch(err => {
-    console.log("error connecting to database")
+    console.log(err, "error connecting to database")
 })
 app.use(cookieParser());
 app.use(express.json());
