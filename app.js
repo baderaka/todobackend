@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 
 
 
-const db = "mongodb://0.0.0.0:27017/todoapp";
+const db = "mongodb+srv://baadhirabaadhi98:2xI50FxQepcZ6qx2@cluster0.e5omvus.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(db, { useNewurlParser: true }).then(() => {
     console.log("database connected successfully")
 }).catch(err => {
@@ -16,8 +16,9 @@ mongoose.connect(db, { useNewurlParser: true }).then(() => {
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ credentials: true, origin: 'http://localhost:4200' }));
+
 app.use('/user', userroute)
 app.listen(3000, () => {
-    res.send("hii");
+
     console.log("app listening at 3000");
 })
