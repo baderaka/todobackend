@@ -2,7 +2,9 @@ const express = require('express');
 const jwt = require('jsonwebtoken')
 
 function verifytoken(req, res, next) {
-    let token = req.cookies.access_token;
+    let authheader = req.headers['authorization'];
+    const bearertoken = authheader.split(''); // this splits the token and bearer.that we set in the header of the browser
+    const token = bearertoken[1]; // the 0th element is bearer then 1 st is our token
     if (!token)
         res.json({
             message: "no token available,first u need to login"
