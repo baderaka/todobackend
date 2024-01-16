@@ -28,15 +28,15 @@ route.post('/register', async(req, res) => {
 route.post('/login', async(req, res) => {
         let user = await usermodel.findOne({ email: req.body.email })
         if (!user) {
-            res.send("no user found with this mail id");
+            return res.send("no user found with this mail id");
         }
 
         let pswd = await bcrypt.compare(req.body.password, user.password);
         if (!pswd) {
-            res.send("inavalid password")
+            return res.send("inavalid password")
         } else {
             const token = jwt.sign({ id: user._id, name: user.name }, "verysecret")
-            res.cookie('access_token', token, { httpOnly: true }).status(200).json({
+            return res.cookie('access_token', token, { httpOnly: true }).status(200).json({
                 message: "logged in successflly",
                 data: user,
                 token: token
@@ -96,9 +96,9 @@ route.put('/:id', verifytoken, async(req, res) => {
     if (post._userid == req.id) {
         await postmodel.findByIdAndUpdate(id, req.body);
         await postmodel.findById(id).then((data) => {
-            res.send(data);
+            return res.send(data);
         }).catch((err) => {
-            res.send(err);
+            return res.send(err);
         })
 
     }
