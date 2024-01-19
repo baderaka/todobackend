@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 
 function verifytoken(req, res, next) {
     let authheader = req.headers['Authorization'];
+    console.log(authheader);
     const bearertoken = authheader.split(' '); // this splits the token and bearer.that we set in the header of the browser
     const token = bearertoken[1]; // the 0th element is bearer then 1 st is our token
     if (!token)
