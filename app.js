@@ -15,7 +15,7 @@ mongoose.connect(db, { useNewurlParser: true }).then(() => {
 })
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ credentials: true, origin: 'https://65b3b5172b2dca127f76162b--todoplannerr.netlify.app/', changeOrigin: true }));
+app.use(cors({ credentials: true, origin: 'https://todoplannerr.netlify.app/#/', changeOrigin: true }));
 app.get('/', (req, res) => {
     res.send("hii");
 })
